@@ -26,7 +26,33 @@ describe "Punto 1"{
 	
 	
 
-}	/* 
+}
+
+describe "Punto 2"{
+	
+	var leo = new Persona(edad = 22, sueldo = 0 , cantidadHijos = 0, carrerasAEstudiar = [ingeniero])
+	var ale = new Persona(edad = 22, sueldo = 1000 , cantidadHijos = 1, carrerasAEstudiar = [futbolista])
+	var multiple = new SuenioMultiple(felicidoniosPorCumplirlo = 0)
+	
+	test "no se puede cumplir suenio multiple" {
+
+		assert.throwsExceptionWithMessage("No se puede cumplir el suenio", {ale.intentaCumplir(multiple)})
+	}
+	
+	test "se puede cumplir suenio multiple"{
+		leo.intentaCumplir(multiple)
+		
+		assert.equals(leo.nivelFelicidad(),500)
+		
+		assert.equals(leo.sueniosCumplidos(),[multiple])
+		assert.equals(leo.carrerasRecibidas(),[])
+	}
+	
+	
+
+}
+
+	/* 
 	test "testX" {
 
 		assert.that(true)

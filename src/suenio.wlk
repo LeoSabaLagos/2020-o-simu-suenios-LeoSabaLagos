@@ -1,4 +1,5 @@
 import persona.*
+import lugarViaje.*
 
 class Suenio {
 	var felicidoniosPorCumplirlo
@@ -69,6 +70,26 @@ class AdoptarHijos inherits SuenioHijos {
 	override method asignarHijos(unaPersona) { 
 		cantidadHijos.times{unaPersona.recibirNuevoHijo()}	
 	}
+}
+
+class SuenioMultiple inherits Suenio {
+	
+	var suenios = [
+		new ViajarA(lugar = cataratas, felicidoniosPorCumplirlo = 250),
+		new TenerUnHijo(felicidoniosPorCumplirlo = 150),
+		new LaburoSoniado(sueldoSoniado = 5, felicidoniosPorCumplirlo = 100) ]
+		
+	override method noFallaValidaciones(unaPersona) = 
+		suenios.all({suenio => suenio.noFallaValidaciones(unaPersona)})
+		
+	override method cumplirSuenio(unaPersona){
+		
+		felicidoniosPorCumplirlo = self.totalFelicidoniosPorCumplirlo()
+		
+		super(unaPersona)
+	}
+	
+	method totalFelicidoniosPorCumplirlo() = suenios.map({suenio => suenio.felicidoniosPorCumplirlo()}).sum()
 }
 
 
