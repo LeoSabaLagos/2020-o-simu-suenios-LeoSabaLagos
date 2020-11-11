@@ -16,6 +16,8 @@ class Suenio {
 	method criterioSuenio(unaPersona) = self.noFallaValidaciones(unaPersona)
 	
 	method noFallaValidaciones(unaPersona) = true
+	
+	method esAmbicioso() = self.felicidoniosPorCumplirlo() > 100
 }
 
 class ViajarA inherits Suenio {

@@ -46,6 +46,13 @@ class Persona {
 	
 	method esFeliz() = felicidonios > sueniosPendientes.map{suenio => suenio.felicidoniosPorCumplirlo()}.sum()
 	
+	method esAmbiciosa() = self.cantidadSueniosAmbiciosos().size() > 3
+	
+	method cantidadSueniosAmbiciosos() = 
+		sueniosPendientes.filter{ suenio => suenio.esAmbicioso() }.size() 
+		+
+		sueniosCumplidos.filter{ suenio => suenio.esAmbicioso() }.size() 
+	
 }
 
 // Personalidades
