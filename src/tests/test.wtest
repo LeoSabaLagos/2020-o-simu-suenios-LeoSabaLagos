@@ -6,8 +6,8 @@ import carrera.*
 
 describe "Punto 1"{
 	
-	var leo = new Persona(edad = 22, sueldo = 200 , cantidadHijos = 0, carrerasAEstudiar = [ingeniero])
-	var ale = new Persona(edad = 22, sueldo = 200 , cantidadHijos = 0, carrerasAEstudiar = [futbolista])
+	var leo = new Persona(edad = 22, sueldo = 200 , cantidadHijos = 0, carrerasAEstudiar = [ingeniero], personalidad = realista)
+	var ale = new Persona(edad = 22, sueldo = 200 , cantidadHijos = 0, carrerasAEstudiar = [futbolista],personalidad = alocada)
 	var serIngeniero = new RecibirseDe(carrera = ingeniero, felicidoniosPorCumplirlo = 100)
 	
 	test "no se puede cumplir suenio de recibirse de una carrera" {
@@ -24,14 +24,13 @@ describe "Punto 1"{
 		assert.equals(leo.carrerasRecibidas(),[ingeniero])
 	}
 	
-	
 
 }
 
 describe "Punto 2"{
 	
-	var leo = new Persona(edad = 22, sueldo = 0 , cantidadHijos = 0, carrerasAEstudiar = [ingeniero])
-	var ale = new Persona(edad = 22, sueldo = 1000 , cantidadHijos = 1, carrerasAEstudiar = [futbolista])
+	var leo = new Persona(edad = 22, sueldo = 0 , cantidadHijos = 0, carrerasAEstudiar = [ingeniero],personalidad = realista)
+	var ale = new Persona(edad = 22, sueldo = 1000 , cantidadHijos = 1, carrerasAEstudiar = [futbolista],personalidad = alocada)
 	var multiple = new SuenioMultiple(felicidoniosPorCumplirlo = 0)
 	
 	test "no se puede cumplir suenio multiple" {
@@ -48,8 +47,6 @@ describe "Punto 2"{
 		assert.equals(leo.carrerasRecibidas(),[])
 	}
 	
-	
-
 }
 
 	/* 
