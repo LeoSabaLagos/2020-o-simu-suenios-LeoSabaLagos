@@ -43,6 +43,9 @@ class Persona {
 		else
 			self.error("No se puede cumplir el suenio")
 	}
+	
+	method esFeliz() = felicidonios > sueniosPendientes.map{suenio => suenio.felicidoniosPorCumplirlo()}.sum()
+	
 }
 
 // Personalidades
