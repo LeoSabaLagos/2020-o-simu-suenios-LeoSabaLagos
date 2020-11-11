@@ -1,0 +1,76 @@
+import persona.*
+import suenio.*
+import lugarViaje.*
+import carrera.*
+
+
+describe "Punto 1"{
+	
+	var leo = new Persona(edad = 22, sueldo = 200 , cantidadHijos = 0, carrerasAEstudiar = [ingeniero])
+	var ale = new Persona(edad = 22, sueldo = 200 , cantidadHijos = 0, carrerasAEstudiar = [futbolista])
+	var serIngeniero = new RecibirseDe(carrera = ingeniero, felicidoniosPorCumplirlo = 100)
+	
+	test "no se puede cumplir suenio de recibirse de una carrera" {
+
+		assert.throwsExceptionWithMessage("No se puede cumplir el suenio", {ale.intentaCumplir(serIngeniero)})
+	}
+	
+	test "se puede cumplir suenio de recibirse de una carrera"{
+		leo.intentaCumplir(serIngeniero)
+		
+		assert.equals(leo.nivelFelicidad(),100)
+		
+		assert.equals(leo.sueniosCumplidos(),[serIngeniero])
+		assert.equals(leo.carrerasRecibidas(),[ingeniero])
+	}
+	
+	
+
+}	/* 
+	test "testX" {
+
+		assert.that(true)
+
+	}
+	
+		test "testX" {
+
+		assert.that(true)
+
+	}
+	
+		test "testX" {
+
+		assert.that(true)
+
+	}	*/
+
+/*describe "Punto 1"{
+	
+	test "testX" {
+
+		assert.that(true)
+
+	}
+	
+		test "testX" {
+
+		assert.that(true)
+
+	}
+	
+		test "testX" {
+
+		assert.that(true)
+
+	}
+	
+		test "testX" {
+
+		assert.that(true)
+
+	}	
+}
+ */
+
+
