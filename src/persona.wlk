@@ -53,34 +53,30 @@ class Persona {
 		+
 		sueniosCumplidos.filter{ suenio => suenio.esAmbicioso() }.size() 
 	
+	method cumplirSuenioMasPreciado(){
+		personalidad.obtenerSuenioMasPreciado(self).cumplirSuenio(self)
+	}
 }
 
 // Personalidades
 
-class Personalidad {
-	method cumplirSuenioMasPreciado(unaPersona){
-		self.obtenerSuenioMasPreciado(unaPersona).cumplirSuenio(unaPersona)
-	}
-	
-	method obtenerSuenioMasPreciado(unaPersona) = true
-}
 
-object realista inherits Personalidad {
+object realista {
 	
-	override method obtenerSuenioMasPreciado(unaPersona) = 
+	method obtenerSuenioMasPreciado(unaPersona) = 
 		unaPersona.sueniosPendientes().max{ suenio => suenio.felicidoniosPorCumplirlo() }
 	
 }
 
-object alocada inherits Personalidad {
+object alocada {
 	
-	override method obtenerSuenioMasPreciado(unaPersona) = unaPersona.sueniosPendientes().anyOne()
+	method obtenerSuenioMasPreciado(unaPersona) = unaPersona.sueniosPendientes().anyOne()
 	// Elemento random  -----> coleccion.anyOne()
 	
 }
 
-object obsesiva inherits Personalidad {
+object obsesiva {
 	
-	override method obtenerSuenioMasPreciado(unaPersona) = unaPersona.sueniosPendientes().first()
+	method obtenerSuenioMasPreciado(unaPersona) = unaPersona.sueniosPendientes().first()
 
 }
